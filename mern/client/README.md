@@ -18,6 +18,11 @@
 
 9. Save the token string it gives you somewhere good because you only see it once. Whenever you push to the github repo, you'll use it for authentication
 
+10. Create a directory where you want to store this project with: mkdir nameofdirectoryyouremaking
+
+11. cd into the directory you just made
+
+12. git clone git@github.com:josephreiser/volconnect.git
 
 
 # Preliminary Installation Steps
@@ -53,13 +58,15 @@ Installing Mongodb
 7. brew services start mongodb-community
 
 
-8. cd into the client directory inside the mern directory 
+8. cd into the client directory inside the mern directory inside the directory where you cloned the repo
 
 9. rm package-lock.json
 
 10. npm install
 
 11. npm start
+
+12. allow it to open your browser, and you should see the app
 
 
 # Getting Started with Create React App
