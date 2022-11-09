@@ -31,6 +31,9 @@ Installing Mongodb
 7. brew services start mongodb-community
 
 
+8. cd into the client directory inside the mern directory 
+
+
 
 
 # Getting Started with Create React App
