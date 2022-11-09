@@ -25,7 +25,7 @@ Installing Mongodb
 5. brew tap mongodb/brew
 
 
-7. 6brew install mongodb-community
+6. brew install mongodb-community
 
 
 7. brew services start mongodb-community
