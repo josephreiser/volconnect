@@ -16,7 +16,7 @@
 
 8. Click Generate Token
 
-9. Save the token string it gives you somewhere good because you only see it once. Whenever you push to the github repo, you'll use it for authentication
+9. Save the token string it gives you somewhere good because you only see it once. Whenever you push to a branch or master you'll use it for the password (github user for the user)
 
 # clone this repo
 
