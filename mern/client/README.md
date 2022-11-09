@@ -14,7 +14,7 @@
 
 7. Check off all the scopes
 
-8, Click Generate Token
+8. Click Generate Token
 
 9. Save the token string it gives you somewhere good because you only see it once. Whenever you push to the github repo, you'll use it for authentication
 
