@@ -1,4 +1,26 @@
-Preliminary Steps, type into your Mac terminal
+# Preliminary Github Steps (if you don't have a personal access token set up)
+
+1. In the top right dropdown of Github, click Settings
+
+2. Click Developer Settings (at the bottom)
+
+3. Click Personal access tokens
+
+4. Choose classic 
+
+5. Click Generate new token
+
+6. Change expiration date to 90 days
+
+7. Check off all the scopes
+
+8, Click Generate Token
+
+9. Save the token string it gives you somewhere good because you only see it once. Whenever you push to the github repo, you'll use it for authentication
+
+
+
+# Preliminary Installation Steps
 
 Installing Homebrew
 
@@ -33,7 +55,11 @@ Installing Mongodb
 
 8. cd into the client directory inside the mern directory 
 
+9. rm package-lock.json
 
+10. npm install
+
+11. npm start
 
 
 # Getting Started with Create React App
