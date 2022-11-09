@@ -20,12 +20,12 @@ export default function Homepage(){
                                 <Card style={{ width: '18rem' }}>
                                 <Card.Img className="cardCover" variant="top" src={"assets/"+quizzes.name+".png"} />
                                 <Card.Body>
-                                    <Card.Title>{quizzes.name} Trivia</Card.Title>
+                                    <Card.Title>Find Opportunities</Card.Title>
                                     <Card.Text>
                                    
                                     </Card.Text>
                                     <Link to={`/quiz${quizzes.name}`}>
-                                        <Button variant="primary">Start Quiz</Button>
+                                        <Button variant="primary">Click Here</Button>
                                     </Link>
                                 </Card.Body>
                                 </Card>
