@@ -18,6 +18,8 @@
 
 9. Save the token string it gives you somewhere good because you only see it once. Whenever you push to the github repo, you'll use it for authentication
 
+# clone this repo
+
 10. Create a directory where you want to store this project with: mkdir nameofdirectoryyouremaking
 
 11. cd into the directory you just made
