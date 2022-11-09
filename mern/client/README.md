@@ -1,20 +1,31 @@
 Preliminary Steps, type into your Mac terminal
 
 Installing Homebrew
+
 1. Run the following in terminal: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 2. Run the three echo commands that the terminal outputs after running the command in step 1
+
     They should look like this:
+    
         echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/josephreiser/.zprofile
+        
         echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/josephreiser/.zprofile
+        
         eval "$(/opt/homebrew/bin/brew shellenv)
         
 Installing Node & npm
+
 3. Run the following in terminal: brew install node
+
 4. Run the following in terminal: npm install -g npm
 
 Installing Mongodb
+
 5. brew tap mongodb/brew
-6. brew install mongodb-community
+
+
+7. 6brew install mongodb-community
 
 
 7. brew services start mongodb-community
