@@ -11,7 +11,7 @@ const quizzes = [
 export default function Homepage(){
     return(
         <div>
-            <h2 id="homeTitle">Choose Your Trivia!</h2>
+            <h2 id="homeTitle">VolunteerConnect</h2>
             <Container>
                 <Row md={quizzes.length}>
                     {quizzes.map(quizzes => {
