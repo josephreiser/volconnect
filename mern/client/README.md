@@ -6,7 +6,7 @@ Installing Homebrew
 
 2. Run the three echo commands that the terminal outputs after running the command in step 1
 
-    They should look like this:
+    They should look similar to this:
     
         echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /Users/josephreiser/.zprofile
         
