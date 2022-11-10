@@ -8,10 +8,11 @@ const requestRoutes = express.Router();
 const ObjectId = require("mongodb").ObjectId;
 const dbo = require("../db/conn");
 
-// This will return movie data to the front end given an IMDB movie ID.
-requestRoutes.route("/requests/getMovie/:id").get(function (req, res) {
+// This will return a Geocoordinate based on a location name, using Google's Geocoding API
+requestRoutes.route("/requests/getCoordinates/:name").get(function (req, res) {
     let request = new XMLHttpRequest();
-    let url = "http://www.omdbapi.com/?i=" + req.params.id + "&apikey=1558749f";
+    let url = "https://geocoder.ls.hereapi.com/6.2/geocode.json&apikey=AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8" +
+    "&searchtext=" + request.params.address
     request.open("GET", url)
     request.send()
     request.onload = () => {
@@ -20,19 +21,18 @@ requestRoutes.route("/requests/getMovie/:id").get(function (req, res) {
             console.log(JSON.parse(request.response()))
             res.json(request.response());
         } else {
-            console.log('error ${request.status} ${request.statusText}')
+            console.log('error ${request.status} ${rcequest.statusText}')
         }
     }
 });
 
-// Function getQuizByQuizName
-// This section will help you get a single record by Quiz Name
-requestRoutes.route("/requests/getQuiz/:quizName").get(function (req, res) {
-    console.log(req.params.quizName);
+// This route will help you get a list of events near a specific location
+requestRoutes.route("/requests/getEvents/:location").get(function (req, res) {
+    console.log(req.params.location)
     let db_connect = dbo.getDb();
     let myquery = { quizName: req.params.quizName};
     db_connect
-        .collection("Quizzes")
+        .collection("Events")
         .findOne(myquery, function (err, result) {
           if (err) throw err;
           res.json(result);
