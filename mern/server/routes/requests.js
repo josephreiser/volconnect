@@ -11,7 +11,7 @@ const dbo = require("../db/conn");
 // This will return a Geocoordinate based on a location name, using Google's Geocoding API
 requestRoutes.route("/requests/getCoordinates/:name").get(function (req, res) {
     let request = new XMLHttpRequest();
-    let url = "https://geocoder.ls.hereapi.com/6.2/geocode.json&apikey=AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8" +
+    let url = "https://geocoder.ls.hereapi.com/6.2/geocode.json&apikey=" +
     "&searchtext=" + request.params.address
     request.open("GET", url)
     request.send()
