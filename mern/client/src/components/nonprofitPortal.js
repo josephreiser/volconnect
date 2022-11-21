@@ -1,4 +1,5 @@
-
+import React from 'react';
+import './nonprofit.css'
 
 const addEvent = ({}) => (
     <div className="wrapper">
