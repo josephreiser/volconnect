@@ -49,18 +49,18 @@ export default function AddEvent(){
                         </select>
                     </label>
 
-                    <label>
+                    <label id="zip-label">
                         <p>Zip</p>
                         <input name="zip" />
                     </label>
 
-                    <label>
+                    <label id = "description-label">
                         <p>Description</p>
-                        <input name = "description" id="description" />
+                        <textarea name = "description" id="description" />
                     </label>
 
                 </fieldset>
-                <button type="submit">Submit</button>
+                <button type="submit" id="submit">Submit</button>
             </form>
         </div>
     )
