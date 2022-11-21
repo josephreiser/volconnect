@@ -11,7 +11,8 @@ import "./App.css";
 import addEvent from "./components/nonprofitPortal"
 import RomcomQuiz from "./components/quizRomCom"
 import MapSection from "./components/map"
-import Login from "./components/Login";
+import AddEvent from "./components/nonprofitPortal";
+//import Login from "./components/Login";
 
 
 const location = {
@@ -25,11 +26,11 @@ const App = () => {
    <div className="App">
      <Navbar />
      <Routes>
-      <Route exact path="/" element={<Homepage />}/>
-      <Route path="/nonprofitPortal" element={<addEvent />}/>
+      <Route path="/" element={<Homepage />}/>
+      <Route path="/nonprofitPortal" element={<AddEvent />}/>
       <Route path="/quizRomCom" element={<RomcomQuiz />}/>
      </Routes>
-       <MapSection location = {location} zoomLevel={15} />
+     <MapSection location = {location} zoomLevel={15} />
    </div>
  );
 };
