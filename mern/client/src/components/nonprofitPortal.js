@@ -18,8 +18,7 @@ export default function AddEvent(){
                         <input name = "event-name" />
                     </label>
 
-
-                    <label for="date">
+                    <label id="date">
                         <p>Date</p>
                         <input type="date" id="date" aria-describedby="date-format" min="2022-08-01" max="2024-01-01" />
                     </label>
@@ -60,6 +59,7 @@ export default function AddEvent(){
                     </label>
 
                 </fieldset>
+
                 <button type="submit" id="submit">Submit</button>
             </form>
         </div>
