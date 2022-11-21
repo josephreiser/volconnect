@@ -8,9 +8,11 @@ import Navbar from "./components/navbar";
 import Homepage from "./components/homepage";
 
 import "./App.css";
-import HorrorQuiz from "./components/quizHorror"
+import addEvent from "./components/nonprofitPortal"
 import RomcomQuiz from "./components/quizRomCom"
 import MapSection from "./components/map"
+import Login from "./components/Login";
+
 
 const location = {
     address: '600 Dr. M.L.K. Jr Blvd, Nashville, TN 37243',
@@ -24,10 +26,9 @@ const App = () => {
      <Navbar />
      <Routes>
       <Route exact path="/" element={<Homepage />}/>
-      <Route path="/quizHorror" element={<HorrorQuiz />}/>
+      <Route path="/nonprofitPortal" element={<addEvent />}/>
       <Route path="/quizRomCom" element={<RomcomQuiz />}/>
      </Routes>
-
        <MapSection location = {location} zoomLevel={15} />
    </div>
  );
