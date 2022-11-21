@@ -5,3 +5,11 @@
 .wrapper fieldset {
     margin: 20px 0;
 }
+
+label {
+    margin: 5px 5px 5px 5px;
+}
+
+input .description {
+    height: 5px;
+}

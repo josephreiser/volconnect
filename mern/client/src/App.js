@@ -8,7 +8,6 @@ import Navbar from "./components/navbar";
 import Homepage from "./components/homepage";
 
 import "./App.css";
-import addEvent from "./components/nonprofitPortal"
 import RomcomQuiz from "./components/quizRomCom"
 import MapSection from "./components/map"
 import AddEvent from "./components/nonprofitPortal";
