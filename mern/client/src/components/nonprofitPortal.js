@@ -82,7 +82,7 @@ export default function CreateEvent() {
                          id="appt" 
                          name="appt"
                          min="00:00" 
-                         max="12:00" 
+                         max="23:59"
                          value = {form.startTime}
                          onChange = {(e) => updateForm({startTime: e.target.value})}
                          required />
@@ -95,8 +95,8 @@ export default function CreateEvent() {
                          id="appt" 
                          name="appt"
                          min="00:00" 
-                         max="12:00" 
-                         value = {form.endTime}
+                         max="23:59"
+                         value = {form.endTime.toString()}
                          onChange = {(e) => updateForm({endTime: e.target.value})}
                          required />
                     </label>
