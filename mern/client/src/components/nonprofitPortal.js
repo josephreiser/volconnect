@@ -1,6 +1,7 @@
 import './nonprofit.css'
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import axios from 'axios'
  
 export default function CreateEvent() {
  const [form, setForm] = useState({
@@ -30,7 +31,18 @@ export default function CreateEvent() {
    // When a post request is sent to the create url, we'll add a new record to the database.
    const newEvent = { ...form };
    console.log(newEvent)
- 
+
+   axios.post('http://localhost:5000/events/create', JSON.stringify(newEvent), 
+   { 
+       headers: {
+            'content-type': "application/json"
+        }
+    })
+    .then(res => {
+        console.log(res);
+        console.log(res.data);
+    })
+   /* 
    await fetch("http://localhost:5000/events/create", {
      method: "POST",
      headers: {
@@ -41,7 +53,7 @@ export default function CreateEvent() {
    .catch(error => {
      window.alert(error);
      return;
-   });
+   }); */
  
    setForm({ name: "", date: "", startTime: "", endTime: "", address: "",
             city: "", state: "", zip: "", desc: ""});
