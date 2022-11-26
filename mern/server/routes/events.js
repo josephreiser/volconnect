@@ -24,7 +24,7 @@ eventRoutes.route("/events").get(function (req, res) {
 
 // Create an event.
 eventRoutes.route("/events/create").post(function (req, response) {
-    console.log('testmyprogram')
+    console.log(req)
     let db_connect = dbo.getDb();
     let myobj = {
         name: req.body.name,
