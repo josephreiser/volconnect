@@ -35,7 +35,8 @@ export default function CreateEvent() {
    axios.post('http://localhost:5000/events/create', JSON.stringify(newEvent), 
    { 
        headers: {
-            'content-type': "application/json"
+            'content-type': "application/json",
+            'Access-Control-Allow-Origin': '*'
         }
     })
     .then(res => {
