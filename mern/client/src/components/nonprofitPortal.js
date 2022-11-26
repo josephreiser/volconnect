@@ -44,7 +44,21 @@ export default function CreateEvent() {
         console.log(res);
         console.log(res.data);
     })
-   /* 
+    
+    /*axios.post('http://129.114.25.216:30001/events/create', JSON.stringify(newEvent), 
+   { 
+       headers: {
+            'content-type': "application/json",
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+        }
+    })
+    .then(res => {
+        console.log(res);
+        console.log(res.data);
+    })
+
+   /
    await fetch("http://localhost:5000/events/create", {
      method: "POST",
      headers: {
