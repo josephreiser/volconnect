@@ -29,8 +29,8 @@ eventRoutes.route("/events/create").post(function (req, response) {
     let myobj = {
         name: req.body.name,
         date: req.body.date,
-        startTime: req.body.starttime,
-        endTime: req.body.endtime,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
         address: req.body.address,
         city: req.body.city,
         state: req.body.state,
