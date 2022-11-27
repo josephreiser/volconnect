@@ -43,7 +43,7 @@ export default function CreateEvent() {
     .then(res => {
         console.log(res);
         console.log(res.data);
-    })
+    });
     
     /*axios.post('http://129.114.25.216:30001/events/create', JSON.stringify(newEvent), 
    { 
