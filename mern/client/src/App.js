@@ -11,6 +11,7 @@ import "./App.css";
 import RomcomQuiz from "./components/quizRomCom"
 import MapSection from "./components/map"
 import AddEvent from "./components/nonprofitPortal";
+import SeeEvent from "./components/volunteerPortal";
 //import Login from "./components/Login";
 
 
@@ -27,6 +28,7 @@ const App = () => {
      <Routes>
       <Route path="/" element={<Homepage />}/>
       <Route path="/nonprofitPortal" element={<AddEvent />}/>
+      <Route path="/volunteerPortal" element={<SeeEvent />}/>
       <Route path="/quizRomCom" element={<RomcomQuiz />}/>
      </Routes>
      <MapSection location = {location} zoomLevel={15} />

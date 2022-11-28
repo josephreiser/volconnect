@@ -57,7 +57,6 @@ export default function CreateEvent() {
         console.log(res);
         console.log(res.data);
     })
-
    /
    await fetch("http://localhost:5000/events/create", {
      method: "POST",
