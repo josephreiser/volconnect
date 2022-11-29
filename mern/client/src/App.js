@@ -13,7 +13,7 @@ import MapSection from "./components/map"
 import CreateEvent from "./components/nonprofitPortal";
 import AddUser from "./components/createUser";
 import ViewEvents from "./components/volunteerPortal";
-import SignUp from "./components/signup";
+import SignUp from "./components/signup"
 //import Login from "./components/Login";
 
 
