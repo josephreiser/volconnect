@@ -5,7 +5,9 @@ import { useParams } from "react-router-dom";
 
 const portal = [
     { id: 1, name: "volunteerPortal"},
-    { id: 2, name: "nonprofitPortal"}
+    { id: 2, name: "nonprofitPortal"},
+    { id: 3, name: "userSignup"}
+
 ];
 
 export default function Homepage(){
