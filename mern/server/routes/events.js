@@ -12,11 +12,12 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
 
 // List all events.
-eventRoutes.route("/events").get(function (req, res) {
+eventRoutes.route("/events/view").get(function (req, res) {
     let db_connect = dbo.getDb();
     db_connect
-    .collection("Events")
-    .findOne(myquery, function (err, result) {
+    .collection('Events')
+    .find({})
+    .toArray(function (err, result) {
       if (err) throw err;
       res.json(result);
     });
@@ -24,7 +25,6 @@ eventRoutes.route("/events").get(function (req, res) {
 
 // Create an event.
 eventRoutes.route("/events/create").post(function (req, response) {
-    console.log(req)
     let db_connect = dbo.getDb();
     let myobj = {
         name: req.body.name,
@@ -35,10 +35,13 @@ eventRoutes.route("/events/create").post(function (req, response) {
         city: req.body.city,
         state: req.body.state,
         zip: req.body.zip,
-        desc: req.body.desc
+        desc: req.body.desc,
+        attendees: []
     };
     console.log(myobj)
-    db_connect.collection('Events').insertOne(myobj, function (err, res) {
+    db_connect
+    .collection('Events')
+    .insertOne(myobj, function (err, res) {
         if (err) throw err;
         response.json(res);
     });

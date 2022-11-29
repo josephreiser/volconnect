@@ -10,7 +10,9 @@ import Homepage from "./components/homepage";
 import "./App.css";
 import RomcomQuiz from "./components/quizRomCom"
 import MapSection from "./components/map"
-import AddEvent from "./components/nonprofitPortal";
+import CreateEvent from "./components/nonprofitPortal";
+import AddUser from "./components/createUser";
+import ViewEvents from "./components/volunteerPortal";
 //import Login from "./components/Login";
 
 
@@ -26,8 +28,9 @@ const App = () => {
      <Navbar />
      <Routes>
       <Route path="/" element={<Homepage />}/>
-      <Route path="/nonprofitPortal" element={<AddEvent />}/>
-      <Route path="/quizRomCom" element={<RomcomQuiz />}/>
+      <Route path="/nonprofitPortal" element={<CreateEvent />}/>
+      <Route path="/volunteerPortal" element={<ViewEvents />}/>
+      <Route path="/userSignup" element={<AddUser />}/>
      </Routes>
      <MapSection location = {location} zoomLevel={15} />
    </div>
