@@ -10,19 +10,22 @@ export default function ViewEvents() {
     
     const [posts, setPosts] = useState([])
     const [displayed, setDisplayed] = useState(false)
+    const [selectedEvent, selectEvent] = useState({})
 
 
     if (displayed == false){ 
         axios.get('http://localhost:5000/events/view')
         .then((response) => {
+            console.log(response)
             setPosts(response.data)
         })
         .catch(() => {
             alert('Error retrieving data')
         });
         setDisplayed(true)
-    }    
-    
+    }
+
+
     return(
         <div>
             <ul>
@@ -35,11 +38,15 @@ export default function ViewEvents() {
                         <p> Starts at: {data.startTime}</p>
                         <p> Ends at: {data.endTime}</p>
                         <p> Description: {data.desc}</p>
-                        <Link to={`/`}>
-                             <Button variant="primary">Sign Up</Button>
+                        <Link to={`/signup`} state = {data}>
+                            <button onClick={() => selectEvent(data)}>
+                             Sign Up
+                            </button>
                         </Link>
-                        <Link to={`/`}>
-                             <Button variant="primary">View on Map</Button>
+                        <Link to={`/viewevent`} state = {data}>
+                            <button onClick={() => selectEvent(data)}>
+                            View on Map
+                            </button>
                         </Link>
                         </li>
                     ))
