@@ -30,6 +30,7 @@ export default function ViewEvents() {
       
         // When a post request is sent to the create url, we'll add a new record to the database.
         const attendee = { ...form };
+
         console.log(attendee)
     }
 
@@ -78,6 +79,8 @@ export default function ViewEvents() {
                 <h4> Event Details</h4>
                   <p> Name: {selectedEvent.name} </p>
                   <p> Location: {selectedEvent.address} </p>
+                  <p> City: {selectedEvent.city} </p>
+                  <p> State: {selectedEvent.state} </p>
                   <p> Date: {selectedEvent.date} </p>
                   <p> From {selectedEvent.startTime} to {selectedEvent.endTime} </p>
                   <p> Description: {selectedEvent.desc}</p>
