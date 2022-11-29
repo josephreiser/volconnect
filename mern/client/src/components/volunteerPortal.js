@@ -132,8 +132,13 @@ export default function ViewEvents() {
                 alert('Error retrieving data')
             });
 
-        //https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
+        let results = coords["results"]
+
+
+        const location = {
+            address: '600 Dr. M.L.K. Jr Blvd, Nashville, TN 37243',
+            lat: null,
+            lng: null,
+        }
     }
-    
-    
 }
