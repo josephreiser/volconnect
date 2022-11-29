@@ -4,6 +4,7 @@ import { renderMatches, useNavigate } from "react-router";
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Button from '@restart/ui/esm/Button';
+import MapSection from "./components/map"
 
 export default function ViewEvents() {
     function reload() {
@@ -19,6 +20,7 @@ export default function ViewEvents() {
     const [selectedEvent, selectEvent] = useState({})
     const [selectedButtonType, selectButtonType] = useState("")
     const [chosen, setChosen] = useState(false)
+    const [coords, setCoords] = useState([])
 
     function updateForm(value) {
         return setForm((prev) => {
@@ -145,7 +147,25 @@ export default function ViewEvents() {
         );
     }
     else if (selectedButtonType == 'viewmap'){
-        return;
+
+        let address
+        address = selectedEvent.address.toString()
+        let city = selectedEvent.city.toString()
+        let state = selectedEvent.state.toString()
+        let prelimAddress = address + ',' + city + ',' + state
+        let requestAddress= prelimAddress.replace("\s", "+")
+        let fullAddress = "https://maps.googleapis.com/maps/api/geocode/json?address=" + requestAddress + "&key=AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8"
+
+        axios.get(fullAddress)
+            .then((response) => {
+                console.log(response)
+                setCoords(response.data)
+            })
+            .catch(() => {
+                alert('Error retrieving data')
+            });
+
+        //https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
     }
     
     
