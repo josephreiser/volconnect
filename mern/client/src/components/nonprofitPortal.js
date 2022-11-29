@@ -87,6 +87,7 @@ export default function CreateEvent() {
                          name = "event-name" 
                          value = {form.name}
                          onChange = {(e) => updateForm({name: e.target.value})}
+                         required
                          />
                     </label>
 
@@ -100,6 +101,7 @@ export default function CreateEvent() {
                          max="2024-01-01" 
                          value = {form.date}
                          onChange = {(e) => updateForm({date: e.target.value})}
+                         required
                          />
                     </label>
 
@@ -135,6 +137,7 @@ export default function CreateEvent() {
                         name="address" 
                         value = {form.address}
                         onChange = {(e) => updateForm({address: e.target.value})}
+                        required
                         />
                     </label>
 
@@ -144,6 +147,7 @@ export default function CreateEvent() {
                         name="City" 
                         value = {form.city}
                         onChange = {(e) => updateForm({city: e.target.value})}
+                        required
                         />
                     </label>
 
@@ -153,6 +157,7 @@ export default function CreateEvent() {
                         name="State" 
                         value = {form.state}
                         onChange = {(e) => updateForm({state: e.target.value})}
+                        required
                         />
                     </label>
 
@@ -162,6 +167,7 @@ export default function CreateEvent() {
                          name="zip"
                          value = {form.zip}
                          onChange = {(e) => updateForm({zip: e.target.value})}
+                         required
                          />
                     </label>
 
@@ -172,6 +178,7 @@ export default function CreateEvent() {
                         id="description" 
                         value = {form.desc}
                         onChange = {(e) => updateForm({desc: e.target.value})}
+                        required
                         />
                     </label>
 
