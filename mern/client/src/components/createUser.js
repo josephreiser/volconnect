@@ -120,18 +120,18 @@ export default function AddUser() {
              id="comservice"
              value="comservice"
              checked={form.level === "comservice"}
-             onChange={(e) => updateForm({ level: e.target.value })}
+             onChange={(e) => updateForm({ status: e.target.value })}
            />
            <label htmlFor="comservice" className="form-check-label">Court-Mandated Community Service</label>
          </div>
        </div>
        <div className="form-group">
-         <label htmlFor="position">Reason for Signup</label>
+         <label htmlFor="position">Organization</label>
          <input
            type="text"
            className="form-control"
            id="status"
-           value={form.status}
+           value={form.organization}
            onChange={(e) => updateForm({ status: e.target.value })}
          />
        </div>
@@ -146,7 +146,7 @@ export default function AddUser() {
              checked={form.organization === "Vanderbilt"}
              onChange={(e) => updateForm({ organization: e.target.value })}
            />
-           <label htmlFor="volunteer" className="form-check-label">Volunteer</label>
+           <label htmlFor="Vanderbilt" className="form-check-label">Vanderbilt</label>
          </div>
        </div>
        <div className="form-group">

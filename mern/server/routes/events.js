@@ -23,6 +23,14 @@ eventRoutes.route("/events/view").get(function (req, res) {
     });
 });
 
+// Add a user to the list of attendees for an event
+eventRoutes.route("/events/update").post(function (req, res) {
+    let db_connect = dbo.getDb();
+    db_connect
+    .collection('Events')
+    .updateOne({"_id": ObjectId(req.body.eventid)}, { $push: {"attendees": req.body.userid}})
+});
+
 // Create an event.
 eventRoutes.route("/events/create").post(function (req, response) {
     let db_connect = dbo.getDb();

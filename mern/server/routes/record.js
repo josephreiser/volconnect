@@ -24,11 +24,24 @@ userRoutes.route("/users").get(function (req, res) {
    });
 });
  
+// This section will verify a username/email
+userRoutes.route("/users/verify").post(function (req, response) {
+  console.log(req.body.email)
+  let db_connect = dbo.getDb();
+  let myquery = {email : req.body.email}
+  db_connect
+     .collection("Users")
+     .findOne(myquery, function (err, result) {
+       if (err) throw err;
+       response.json(result);
+     });
+ });
+
 // This section will help you get a single record by id
 userRoutes.route("/users/:id").get(function (req, res) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId( req.params.id )};
- db_connect
+ return db_connect
      .collection("Users")
      .findOne(myquery, function (err, result) {
        if (err) throw err;
@@ -58,7 +71,7 @@ userRoutes.route("/users/add").post(function (req, response) {
 userRoutes.route("/users/update/").post(function (req, response) {
 
  let db_connect = dbo.getDb(); 
- let myquery = { _id: ObjectId( req.body.email )}; 
+ let myquery = { _id: ObjectId( req.body.id )}; 
  let newvalues = {   
    $set: {
       eventsAttended: eventsAttended.push(req.params.event)

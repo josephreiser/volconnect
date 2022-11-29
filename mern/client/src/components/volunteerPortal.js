@@ -27,11 +27,41 @@ export default function ViewEvents() {
     }
     async function onSubmit(e) {
         e.preventDefault();
-      
+        console.log('test1')
         // When a post request is sent to the create url, we'll add a new record to the database.
         const attendee = { ...form };
-
         console.log(attendee)
+        axios.post('http://localhost:5000/users/verify', JSON.stringify(attendee),
+        {
+            headers: {
+                'content-type': "application/json",
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+            }
+        })
+        .then((response) => {
+            if (response.data.password == attendee.password){
+
+                let comparator = {
+                    eventid: selectedEvent._id,
+                    userid: response.data._id
+                }
+                console.log(comparator)
+                axios.post('http://localhost:5000/events/update', JSON.stringify(comparator),
+                {
+                    headers: {
+                        'content-type': "application/json",
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+                    } 
+                }).catch(() => {
+                    alert('Error retrieving data')
+                });
+            }
+        })
+        .catch(() => {
+            alert('Error retrieving data')
+        });
     }
 
     if (displayed == false){ 
