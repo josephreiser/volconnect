@@ -163,14 +163,15 @@ export default function ViewEvents() {
         })
             .then((response) => {
                 console.log(response)
-                console.log(response.data.results[0].geometry.location)
-               // setCoords(response.data.results[0].geometry.location)
+                setCoordinates(response)
+                function setCoordinates(response) {
+                    setCoords(response.data.results[0].geometry.location)
+                }
+
             })
             .catch(() => {
                 alert('Error retrieving data')
             });
-
-
 
     }
     
