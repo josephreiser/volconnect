@@ -1,0 +1,31 @@
+.wrapper {
+    padding: 5px 20px;
+}
+
+.wrapper fieldset {
+    margin: 20px 0;
+}
+
+label {
+    margin: 5px 5px 5px 5px;
+}
+
+#description {
+    height: 100px;
+    width: 300px;
+    resize: none;
+    padding: 12px 12px;
+    box-sizing: border-box;
+}
+
+#description-label {
+    margin-top: 8px;
+    margin-left: 20px;
+    position: absolute;
+}
+
+#submit {
+    margin-top: 100px;
+    margin-left: 400px
+}
+
