@@ -21,10 +21,29 @@ export default function ViewEvents() {
     const [selectedButtonType, selectButtonType] = useState("")
     const [chosen, setChosen] = useState(false)
     const [coords, setCoords] = useState([])
+    const [foundCoords, setChordsFound] = useState(false)
 
     function updateForm(value) {
         return setForm((prev) => {
           return { ...prev, ...value };
+        });
+    }
+    async function getCoordinates(e){
+        const prelimAddress = selectedEvent.address + ',' + selectedEvent.city + ',' + selectedEvent.state
+        const requestAddress = prelimAddress.replaceAll(" ", "+")
+        axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
+            params: {
+                address: requestAddress,
+                key: 'AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8'
+            }
+        })
+        .then((response) => {
+            setCoords(response.data.results[0].geometry.location)
+            setChordsFound()
+            console.log(coords)
+        })
+        .catch(() => {
+            alert('Error retrieving data')
         });
     }
     async function onSubmit(e) {
@@ -147,31 +166,18 @@ export default function ViewEvents() {
         );
     }
     else if (selectedButtonType == 'viewmap'){
-
-        let address
-        address = selectedEvent.address.toString()
-        let city = selectedEvent.city.toString()
-        let state = selectedEvent.state.toString()
-        let prelimAddress = address + ',' + city + ',' + state
-        let requestAddress= prelimAddress.replaceAll(" ", "+")
-
-        axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
-            params: {
-                address: requestAddress,
-                key: 'AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8'
-            }
-        })
-            .then((response) => {
-                console.log(response)
-                setCoordinates(response)
-                function setCoordinates(response) {
-                    setCoords(response.data.results[0].geometry.location)
-                }
-
-            })
-            .catch(() => {
-                alert('Error retrieving data')
-            });
+        console.log(coords)   
+        console.log(selectedEvent)
+        if (foundCoords == false){     
+            console.log('hello')   
+            getCoordinates()
+        }
+        return(
+            <div> 
+            <p>Latitude: {coords.lat}</p>
+            <p>Longitude: {coords.lng}</p>
+            </div>
+        )
 
     }
     
