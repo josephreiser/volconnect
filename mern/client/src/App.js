@@ -13,11 +13,12 @@ import MapSection from "./components/map"
 import CreateEvent from "./components/nonprofitPortal";
 import AddUser from "./components/createUser";
 import ViewEvents from "./components/volunteerPortal";
-import SignUp from "./components/signup"
+//import SignUp from "./components/signup"
 //import Login from "./components/Login";
 
 
 const location = {
+
     address: '600 Dr. M.L.K. Jr Blvd, Nashville, TN 37243',
     lat: 36.1662594015328,
     lng: -86.78406041733878,
@@ -28,11 +29,11 @@ const App = () => {
    <div className="App">
      <Navbar />
      <Routes>
-      <Route path="/" element={<Homepage />}/>
+      <Route id ="homepage" path="/" element={<Homepage />}/>
       <Route path="/nonprofitPortal" element={<CreateEvent />}/>
       <Route path="/volunteerPortal" element={<ViewEvents />}/>
       <Route path="/userSignup" element={<AddUser />}/>
-      <Route path="/signup" element={<SignUp />}/>
+      {/*<Route path="/signup" element={<SignUp />}/>*/}
       <Route path="/viewmap" element={<ViewEvents />}/>
      </Routes>
      <MapSection location = {location} zoomLevel={15} />

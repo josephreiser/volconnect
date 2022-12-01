@@ -25,6 +25,26 @@ export default function ViewEvents() {
           return { ...prev, ...value };
         });
     }
+
+    async function axiosCall() {
+        let address
+        address = selectedEvent.address.toString()
+        let city = selectedEvent.city.toString()
+        let state = selectedEvent.state.toString()
+        let prelimAddress = address + ',' + city + ',' + state
+        let requestAddress = prelimAddress.replaceAll(" ", "+")
+        // create a promise for the axios request
+        const promise = axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
+            params: {
+                address: requestAddress,
+                key: 'AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8'
+            }
+        })
+        return promise.then((response) => response.data.results[0]).catch(() => {
+            alert('Error retrieving data')
+        })
+    }
+
     async function onSubmit(e) {
         e.preventDefault();
         console.log('test1')
@@ -153,28 +173,15 @@ export default function ViewEvents() {
         let prelimAddress = address + ',' + city + ',' + state
         let requestAddress = prelimAddress.replaceAll(" ", "+")
 
-        function setCoordinates(response) {
-            setCoords(response)
-        }
 
-        function axiosCall() {
-            // create a promise for the axios request
-            const promise = axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
-                            params: {
-                                address: requestAddress,
-                                key: 'AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8'
-                            }
-                        })
+
 
             // using .then, create a new promise which extracts the data
             // return it
-            return promise.then((response) => response.data.results[0]).catch(() => {
-                alert('Error retrieving data')
-            })
-        }
 
-       let data = axiosCall().then(data => {setCoords(data)})
-        console.log(data)
+
+       // let data = axiosCall()
+       //  console.log(data)
 
         // let location = {
         //     address: data.formatted_address,
@@ -206,23 +213,26 @@ export default function ViewEvents() {
         //     console.log(data);
         // })();
 
+        const lst = [];
+        const populateData = (data) => {lst.push(data)}
 
-        // axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
-        //     params: {
-        //         address: requestAddress,
-        //         key: 'AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8'
-        //     }
-        // })
-        //     .then((response) => {
-        //         console.log(response)
-        //
-        //         // function setCoordinates(response) {
-        //         //     setCoords(response.data.results[0].geometry.location)
-        //         // }
-        //     })
-        //     .catch(() => {
-        //         alert('Error retrieving data')
-        //     });
+        axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
+            params: {
+                address: requestAddress,
+                key: 'AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8'
+            }
+        })
+            .then((response) => {
+                console.log(response)
+                populateData(response.data.results[0])
+                // function setCoordinates(response) {
+                //     setCoords(response.data.results[0].geometry.location)
+                // }
+            })
+            .catch(() => {
+                alert('Error retrieving data')
+            });
+
 
 
         // const {} = useJsApiLoader({ googleMapsApiKey: 'AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8'})

@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import './homepage.css'
 
 const portal = [
     { id: 1, name: "volunteerPortal"},
@@ -19,18 +20,19 @@ export default function Homepage(){
                     {portal.map(portal => {
                         return(
                             <Col key={portal.id}>
-                                <Card style={{ width: '18rem' }}>
-                                <Card.Img className="cardCover" variant="top" src={"assets/"+portal.name+".png"} />
-                                <Card.Body>
-                                    <Card.Title>Find Opportunities</Card.Title>
-                                    <Card.Text>
-                                   
-                                    </Card.Text>
-                                    <Link to={`/${portal.name}`}>
-                                        <Button variant="primary">Click Here</Button>
-                                    </Link>
-                                </Card.Body>
-                                </Card>
+                                <Link to={`/${portal.name}`}>
+                                    <Card style={{ width: '18rem' }}>
+                                    <Card.Img className="cardCover" variant="top" src={"assets/"+portal.name+".png"} />
+                                    <Card.Body>
+                                        <Card.Title>Find Opportunities</Card.Title>
+                                        <Card.Text>
+
+                                        </Card.Text>
+                                            <Button variant="primary">Click Here</Button>
+
+                                    </Card.Body>
+                                    </Card>
+                            </Link>
                             </Col>
                         )
                     })}

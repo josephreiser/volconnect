@@ -17,7 +17,12 @@ body{
     background-color: #b9b7bd;
 }
 
+.homepage {
+    margin-top: 5px;
+}
+
 #homeTitle{
+    margin-top: 0px;
     display: flex;
     justify-content: center;
 }

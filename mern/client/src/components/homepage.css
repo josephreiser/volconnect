@@ -1,0 +1,14 @@
+h2 {
+    font-family: monospace;
+    font-size: 50px;
+}
+
+Card:hover {
+    box-shadow: 0 20px 20px 20px black;
+
+}
+
+Card.Title{
+    color: black;
+    font-family: monospace;
+}
