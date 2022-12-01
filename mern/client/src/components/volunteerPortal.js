@@ -21,6 +21,7 @@ export default function ViewEvents() {
     const [selectedButtonType, selectButtonType] = useState("")
     const [chosen, setChosen] = useState(false)
     const [coords, setCoords] = useState([])
+    const [geoData, setGeoData] = useState([])
     const [foundCoords, setChordsFound] = useState(false)
 
     function updateForm(value) {
@@ -39,6 +40,7 @@ export default function ViewEvents() {
         })
         .then((response) => {
             setCoords(response.data.results[0].geometry.location)
+            setGeoData(response.data.results[0])
             setChordsFound()
             console.log(coords)
         })
@@ -172,11 +174,13 @@ export default function ViewEvents() {
             console.log('hello')   
             getCoordinates()
         }
+        let location = {
+            address: geoData.formatted_address,
+            lat: coords.lat,
+            lng: coords.lng,
+        }
         return(
-            <div> 
-            <p>Latitude: {coords.lat}</p>
-            <p>Longitude: {coords.lng}</p>
-            </div>
+            <MapSection location = {location} zoomLevel={15} />
         )
 
     }
