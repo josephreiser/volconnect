@@ -179,8 +179,13 @@ export default function ViewEvents() {
             lat: coords.lat,
             lng: coords.lng,
         }
+
+        let center = {
+            lat: coords.lat,
+            lng: coords.lng,
+        }
         return(
-            <MapSection location = {location} zoomLevel={15} />
+            <MapSection location = {location} zoomLevel={15} center={center}/>
         )
 
     }

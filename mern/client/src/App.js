@@ -22,6 +22,10 @@ const location = {
     lat: 36.1662594015328,
     lng: -86.78406041733878,
 }
+const center = {
+    lat: 36.1662594015328,
+    lng: -86.78406041733878,
+}
 
 const App = () => {
  return (
@@ -35,7 +39,7 @@ const App = () => {
       <Route path="/signup" element={<SignUp />}/>
       <Route path="/viewmap" element={<ViewEvents />}/>
      </Routes>
-     <MapSection location = {location} zoomLevel={15} />
+     <MapSection location = {location} center = {center} zoomLevel={15} />
    </div>
  );
 };

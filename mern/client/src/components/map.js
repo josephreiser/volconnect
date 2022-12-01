@@ -4,14 +4,14 @@ import './map.css'
 
 import { Icon } from '@iconify/react'
 
-const Map = ({ location, zoomLevel }) => (
+const Map = ({ location, zoomLevel, center }) => (
     <div className="map">
         <h2 className="map-h2">Nashville Volunteer Opportunities</h2>
 
         <div className="google-map">
             <GoogleMapReact
                 bootstrapURLKeys={{ key: 'AIzaSyDl72eXsRqkb6ZN-y9cgoxIqJ97XYKvsp8' }} //api key goes here
-                defaultCenter={location}
+                defaultCenter={center}
                 defaultZoom={zoomLevel}
             >
                 <LocationPin
