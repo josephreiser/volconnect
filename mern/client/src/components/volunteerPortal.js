@@ -168,8 +168,6 @@ export default function ViewEvents() {
         );
     }
     else if (selectedButtonType == 'viewmap'){
-        console.log(coords)   
-        console.log(selectedEvent)
         if (foundCoords == false){     
             console.log('hello')   
             getCoordinates()
@@ -184,8 +182,13 @@ export default function ViewEvents() {
             lat: coords.lat,
             lng: coords.lng,
         }
+
+        //tests
+        console.log(location)
+        console.log(center)
+
         return(
-            <MapSection location = {location} zoomLevel={15} center={center}/>
+            <MapSection location = {location} zoomLevel={15} center={center} />
         )
 
     }

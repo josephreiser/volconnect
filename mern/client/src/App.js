@@ -39,7 +39,6 @@ const App = () => {
       <Route path="/signup" element={<SignUp />}/>
       <Route path="/viewmap" element={<ViewEvents />}/>
      </Routes>
-     <MapSection location = {location} center = {center} zoomLevel={15} />
    </div>
  );
 };
