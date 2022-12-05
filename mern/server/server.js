@@ -8,6 +8,8 @@ app.use(express.json());
 app.use(require("./routes/users"));
 app.use(require("./routes/requests"));
 app.use(require("./routes/events"));
+app.use(require("./routes/nonprofits"));
+
 
 
 // get driver connection

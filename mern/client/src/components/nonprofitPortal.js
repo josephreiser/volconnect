@@ -13,7 +13,9 @@ export default function CreateEvent() {
     city: "",
     state: "",
     zip: "",
-    desc: ""
+    desc: "",
+    email: "",
+    password: ""
  });
  const navigate = useNavigate();
  
@@ -31,50 +33,47 @@ export default function CreateEvent() {
    // When a post request is sent to the create url, we'll add a new record to the database.
    const newEvent = { ...form };
    console.log(newEvent)
+   const nonprofit = {
+       email: newEvent.email,
+       password: newEvent.password
+   }
 
-   axios.post('http://localhost:5000/events/create', JSON.stringify(newEvent), 
-   { 
-       headers: {
-            'content-type': "application/json",
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-        }
-    })
-    .then(res => {
-        console.log(res);
-        console.log(res.data);
-    });
+   axios.post('http://localhost:5000/nonprofits/verify', JSON.stringify(nonprofit),
+        {
+            headers: {
+                'content-type': "application/json",
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+            }
+        })
+        .then((response) => {
+            if (response.data.password == nonprofit.password){
+
+                axios.post('http://localhost:5000/events/create', JSON.stringify(newEvent), 
+                { 
+                    headers: {
+                            'content-type': "application/json",
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+                        }
+                })
+                .then((res) => {
+                    console.log(res);
+                    console.log(res.data);
+                
+                })
+            }
+            else{
+                navigate('/nprft_crdntl_err')
+            }
+        })
+
     
-    /*axios.post('http://129.114.25.216:30001/events/create', JSON.stringify(newEvent), 
-   { 
-       headers: {
-            'content-type': "application/json",
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-        }
-    })
-    .then(res => {
-        console.log(res);
-        console.log(res.data);
-    })
-
-   /
-   await fetch("http://localhost:5000/events/create", {
-     method: "POST",
-     headers: {
-       "Content-Type": "application/json",
-     },
-     body: JSON.stringify(newEvent),
-   })
-   .catch(error => {
-     window.alert(error);
-     return;
-   }); */
  
-   setForm({ name: "", date: "", startTime: "", endTime: "", address: "",
-            city: "", state: "", zip: "", desc: ""});
-   navigate("/");
- }
+        setForm({ name: "", date: "", startTime: "", endTime: "", address: "",
+                    city: "", state: "", zip: "", desc: "", email: "", password: ""});
+        navigate("/");
+    }
 
     return (
         <div className="wrapper">
@@ -171,6 +170,25 @@ export default function CreateEvent() {
                          />
                     </label>
 
+                    <label>
+                        <p>Nonprofit Email</p>
+                        <input 
+                        name="address" 
+                        value = {form.email}
+                        onChange = {(e) => updateForm({email: e.target.value})}
+                        required
+                        />
+                    </label>
+                    <label>
+                        <p>Nonprofit Password</p>
+                        <input 
+                        name="address" 
+                        value = {form.password}
+                        onChange = {(e) => updateForm({password: e.target.value})}
+                        required
+                        />
+                    </label>
+
                     <label id = "description-label">
                         <p>Description</p>
                         <textarea 
@@ -181,6 +199,10 @@ export default function CreateEvent() {
                         required
                         />
                     </label>
+
+                  
+
+                    
 
                 </fieldset>
 

@@ -15,6 +15,7 @@ import AddUser from "./components/createUser";
 import ViewEvents from "./components/volunteerPortal";
 import SignUp from "./components/signup"
 import AddNonprofit from "./components/createNonprofit";
+import NonprofitErrorCredentials from "./components/error_credentials";
 //import Login from "./components/Login";
 
 
@@ -40,6 +41,7 @@ const App = () => {
       <Route path="/nonprofitSignup" element={<AddNonprofit />}/>
       <Route path="/signup" element={<SignUp />}/>
       <Route path="/viewmap" element={<ViewEvents />}/>
+      <Route path="/nprft_crdntl_err" element={<NonprofitErrorCredentials />}/>
      </Routes>
    </div>
  );
