@@ -14,9 +14,17 @@ p {
 
 }
 
+#signup:hover {
+    box-shadow: 3px 3px gray;
+}
+
 #mapButton {
     margin-left: 20px;
     margin-right: 10px;
+}
+
+#mapButton:hover {
+    box-shadow: 3px 3px gray;
 }
 
 #description {
