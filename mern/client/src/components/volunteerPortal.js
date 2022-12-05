@@ -108,15 +108,15 @@ export default function ViewEvents() {
             <div>
                 <div>
                     <h1> 
-                        Here is a list of volunteering events in your area.
+                        Volunteering events in your area:
                     </h1>
-                    
+                    <br/>
                 </div>
                 <div>
                     <ul>
                         {
                             posts.map((data) => (
-                                <li key={data._id}> 
+                                <li key={data._id}>
                                 <h3> {data.name}</h3>
                                 <p> {data.address}, {data.city}, {data.state} {data.zip}</p>
                                 <p> {data.date}</p>
