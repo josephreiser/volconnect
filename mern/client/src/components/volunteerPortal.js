@@ -109,9 +109,9 @@ export default function ViewEvents() {
             <div>
                 <div>
                     <h1> 
-                        Here is a list of volunteering events in your area.
+                        Volunteering events in your area:
                     </h1>
-                    
+                    <br/>
                 </div>
                 <div>
                     <ul>
