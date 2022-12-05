@@ -203,7 +203,7 @@ export default function ViewEvents() {
         console.log(center)
 
         return(
-            <MapSection location = {location} zoomLevel={15} center={center} />
+            <MapSection location = {location} zoomLevel={14} center={center} />
         )
 
     }
