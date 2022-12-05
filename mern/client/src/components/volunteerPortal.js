@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 import Button from '@restart/ui/esm/Button';
 import MapSection from "./map"
 
+
 export default function ViewEvents() {
+    const navigate = useNavigate();
+
     function reload() {
         console.log('why')
         window.location.reload(false)
@@ -67,9 +70,10 @@ export default function ViewEvents() {
 
                 let comparator = {
                     eventid: selectedEvent._id,
-                    userid: response.data._id
+                    userid: response.data._id,
+                    userFirst: response.data.firstName,
+                    userLast: response.data.lastName,
                 }
-                console.log(comparator)
                 axios.post('http://localhost:5000/events/update', JSON.stringify(comparator),
                 {
                     headers: {
@@ -102,26 +106,34 @@ export default function ViewEvents() {
     if (chosen == false){
         return(
             <div>
-                <ul>
-                    {
-                        posts.map((data) => (
-                            <li key={data._id}> 
-                            <p> Name: {data.name}</p>
-                            <p> Address: {data.address}</p>
-                            <p> Date: {data.date}</p>
-                            <p> Starts at: {data.startTime}</p>
-                            <p> Ends at: {data.endTime}</p>
-                            <p> Description: {data.desc}</p>
-                            <button onClick={function(){setChosen(true); selectEvent(data); selectButtonType("signup")}}>
-                            Sign Up
-                            </button>
-                            <button onClick={function(){setChosen(true); selectEvent(data); selectButtonType("viewmap")}}>
-                            View on Map
-                            </button>
-                            </li>
-                        ))
-                    }
-                </ul>
+                <div>
+                    <h1> 
+                        Here is a list of volunteering events in your area.
+                    </h1>
+                    
+                </div>
+                <div>
+                    <ul>
+                        {
+                            posts.map((data) => (
+                                <li key={data._id}> 
+                                <p> Name: {data.name}</p>
+                                <p> Address: {data.address}</p>
+                                <p> Date: {data.date}</p>
+                                <p> Starts at: {data.startTime}</p>
+                                <p> Ends at: {data.endTime}</p>
+                                <p> Description: {data.desc}</p>
+                                <button onClick={function(){setChosen(true); selectEvent(data); selectButtonType("signup")}}>
+                                Sign Up
+                                </button>
+                                <button onClick={function(){setChosen(true); selectEvent(data); selectButtonType("viewmap")}}>
+                                View on Map
+                                </button>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </div>
         );
     }
@@ -137,6 +149,9 @@ export default function ViewEvents() {
                   <p> Date: {selectedEvent.date} </p>
                   <p> From {selectedEvent.startTime} to {selectedEvent.endTime} </p>
                   <p> Description: {selectedEvent.desc}</p>
+                  <p> Attendees: {selectedEvent.attendeeList.map((tag, i) => <span key={i}>
+                {i > 0 && ", "} {tag} </span>)}
+                 </p>
                 <form onSubmit={onSubmit} >
                     <fieldset>
                         <label>

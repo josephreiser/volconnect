@@ -107,7 +107,7 @@ export default function AddUser() {
              name="positionOptions"
              id="volunteer"
              value="volunteer"
-             checked={form.level === "volunteer"}
+             checked={form.status === "volunteer"}
              onChange={(e) => updateForm({ status: e.target.value })}
            />
            <label htmlFor="volunteer" className="form-check-label">Volunteer</label>
@@ -119,7 +119,7 @@ export default function AddUser() {
              name="positionOptions"
              id="comservice"
              value="comservice"
-             checked={form.level === "comservice"}
+             checked={form.status === "comservice"}
              onChange={(e) => updateForm({ status: e.target.value })}
            />
            <label htmlFor="comservice" className="form-check-label">Court-Mandated Community Service</label>

@@ -28,7 +28,7 @@ eventRoutes.route("/events/update").post(function (req, res) {
     let db_connect = dbo.getDb();
     db_connect
     .collection('Events')
-    .updateOne({"_id": ObjectId(req.body.eventid)}, { $push: {"attendees": req.body.userid}})
+    .updateOne({"_id": ObjectId(req.body.eventid)}, { $push: {"attendees": req.body.userid, "attendeeList": req.body.userFirst + " " + req.body.userLast}})
 });
 
 // Create an event.
@@ -44,7 +44,8 @@ eventRoutes.route("/events/create").post(function (req, response) {
         state: req.body.state,
         zip: req.body.zip,
         desc: req.body.desc,
-        attendees: []
+        attendees: [],
+        attendeeList: []
     };
     console.log(myobj)
     db_connect

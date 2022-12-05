@@ -14,6 +14,7 @@ import CreateEvent from "./components/nonprofitPortal";
 import AddUser from "./components/createUser";
 import ViewEvents from "./components/volunteerPortal";
 import SignUp from "./components/signup"
+import AddNonprofit from "./components/createNonprofit";
 //import Login from "./components/Login";
 
 
@@ -36,6 +37,7 @@ const App = () => {
       <Route path="/nonprofitPortal" element={<CreateEvent />}/>
       <Route path="/volunteerPortal" element={<ViewEvents />}/>
       <Route path="/userSignup" element={<AddUser />}/>
+      <Route path="/nonprofitSignup" element={<AddNonprofit />}/>
       <Route path="/signup" element={<SignUp />}/>
       <Route path="/viewmap" element={<ViewEvents />}/>
      </Routes>

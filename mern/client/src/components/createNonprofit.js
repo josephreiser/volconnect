@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
  
-export default function AddOrganization() {
+export default function AddNonprofit() {
  const [form, setForm] = useState({
    name: "",
    address: "",
@@ -49,7 +49,7 @@ export default function AddOrganization() {
      <h3>Create an Account</h3>
      <form onSubmit={onSubmit}>
        <div className="form-group">
-         <label htmlFor="name">First Name</label>
+         <label htmlFor="name">Official Name of your Organization</label>
          <input
            type="text"
            className="form-control"
@@ -59,7 +59,7 @@ export default function AddOrganization() {
          />
        </div>
        <div className="form-group">
-         <label htmlFor="name">Last Name</label>
+         <label htmlFor="name">Official Mailing Address of your Organization</label>
          <input
            type="text"
            className="form-control"
@@ -69,7 +69,7 @@ export default function AddOrganization() {
          />
        </div>
        <div className="form-group">
-         <label htmlFor="name">Email</label>
+         <label htmlFor="name">Relevant Email for your Organization (used for login and communication)</label>
          <input
            type="text"
            className="form-control"
@@ -79,7 +79,7 @@ export default function AddOrganization() {
          />
        </div>
        <div className="form-group">
-         <label htmlFor="name">Password</label>
+         <label htmlFor="name">Choose a Password</label>
          <input
            type="text"
            className="form-control"
@@ -89,7 +89,7 @@ export default function AddOrganization() {
          />
        </div>
        <div className="form-group">
-         <label htmlFor="position">Reason for Signup</label>
+         <label htmlFor="position">What type of Organization are you?</label>
          <input
            type="text"
            className="form-control"
@@ -104,48 +104,24 @@ export default function AddOrganization() {
              className="form-check-input"
              type="radio"
              name="positionOptions"
-             id="volunteer"
-             value="volunteer"
-             checked={form.level === "volunteer"}
+             id="nonprofit"
+             value="Nonprofit"
+             checked={form.status === "nonprofit"}
              onChange={(e) => updateForm({ status: e.target.value })}
            />
-           <label htmlFor="volunteer" className="form-check-label">Volunteer</label>
+           <label htmlFor="volunteer" className="form-check-label">Nonprofit</label>
          </div>
          <div className="form-check form-check-inline">
            <input
              className="form-check-input"
              type="radio"
              name="positionOptions"
-             id="comservice"
-             value="comservice"
-             checked={form.level === "comservice"}
-             onChange={(e) => updateForm({ level: e.target.value })}
+             id="charity"
+             value="Charity"
+             checked={form.status === "charity"}
+             onChange={(e) => updateForm({ status: e.target.value })}
            />
-           <label htmlFor="comservice" className="form-check-label">Court-Mandated Community Service</label>
-         </div>
-       </div>
-       <div className="form-group">
-         <label htmlFor="position">Reason for Signup</label>
-         <input
-           type="text"
-           className="form-control"
-           id="status"
-           value={form.status}
-           onChange={(e) => updateForm({ status: e.target.value })}
-         />
-       </div>
-       <div className="form-group">
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="Vanderbilt"
-             value="Vanderbilt"
-             checked={form.organization === "Vanderbilt"}
-             onChange={(e) => updateForm({ organization: e.target.value })}
-           />
-           <label htmlFor="volunteer" className="form-check-label">Volunteer</label>
+           <label htmlFor="comservice" className="form-check-label">Charity</label>
          </div>
        </div>
        <div className="form-group">
