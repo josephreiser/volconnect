@@ -117,18 +117,19 @@ export default function ViewEvents() {
                         {
                             posts.map((data) => (
                                 <li key={data._id}> 
-                                <p> Name: {data.name}</p>
-                                <p> Address: {data.address}</p>
-                                <p> Date: {data.date}</p>
-                                <p> Starts at: {data.startTime}</p>
-                                <p> Ends at: {data.endTime}</p>
+                                <h3> {data.name}</h3>
+                                <p> {data.address}, {data.city}, {data.state} {data.zip}</p>
+                                <p> {data.date}</p>
+                                <p> Starts at: {data.startTime} CT</p>
+                                <p> Ends at: {data.endTime} CT</p>
                                 <p> Description: {data.desc}</p>
-                                <button onClick={function(){setChosen(true); selectEvent(data); selectButtonType("signup")}}>
+                                <button id = "signup" onClick={function(){setChosen(true); selectEvent(data); selectButtonType("signup")}}>
                                 Sign Up
                                 </button>
-                                <button onClick={function(){setChosen(true); selectEvent(data); selectButtonType("viewmap")}}>
+                                <button id = "mapButton" onClick={function(){setChosen(true); selectEvent(data); selectButtonType("viewmap")}}>
                                 View on Map
                                 </button>
+                                    <hr/>
                                 </li>
                             ))
                         }
