@@ -117,7 +117,6 @@ export default function ViewEvents() {
                     <ul>
                         {
                             posts.map((data) => (
-                                <Card style={{ border: '4px solid #00FF00' }}>
                                 <li key={data._id}> 
                                 <h3> {data.name}</h3>
                                 <p> {data.address}, {data.city}, {data.state} {data.zip}</p>
@@ -133,7 +132,7 @@ export default function ViewEvents() {
                                 </button>
                                     <hr/>
                                 </li>
-                                </Card>
+
                             ))
                         }
                     </ul>
