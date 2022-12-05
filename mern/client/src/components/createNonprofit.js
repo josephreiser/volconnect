@@ -6,7 +6,11 @@ export default function AddNonprofit() {
  const [form, setForm] = useState({
    name: "",
    address: "",
+   city: "",
+   state: "",
+   zip: "",
    email: "",
+   status: "",
    description: "",
    password: ""
  });
@@ -24,9 +28,9 @@ export default function AddNonprofit() {
    e.preventDefault();
  
    // When a post request is sent to the create url, we'll add a new record to the database.
-   const newPerson = { ...form };
+   const newOrg = { ...form };
  
-   axios.post('http://localhost:5000/users/add', JSON.stringify(newPerson), 
+   axios.post('http://localhost:5000/nonprofits/add', JSON.stringify(newOrg), 
    { 
        headers: {
             'content-type': "application/json",
@@ -39,7 +43,7 @@ export default function AddNonprofit() {
         console.log(res.data);
     });
  
-   setForm({name: "", address: "", email: "", description: "", password: ""});
+   setForm({name: "", address: "", city: "", state: "", zip: "", email: "", description: "", password: ""});
    navigate("/");
  }
  
@@ -53,9 +57,19 @@ export default function AddNonprofit() {
          <input
            type="text"
            className="form-control"
-           id="firstName"
-           value={form.firstName}
-           onChange={(e) => updateForm({ firstName: e.target.value })}
+           id="name"
+           value={form.name}
+           onChange={(e) => updateForm({ name: e.target.value })}
+         />
+       </div>
+       <div className="form-group">
+         <label htmlFor="name">Give us a short description of your organization</label>
+         <input
+           type="text"
+           className="form-control"
+           id="email"
+           value={form.description}
+           onChange={(e) => updateForm({ description: e.target.value })}
          />
        </div>
        <div className="form-group">
@@ -63,9 +77,39 @@ export default function AddNonprofit() {
          <input
            type="text"
            className="form-control"
-           id="lastName"
-           value={form.lastName}
-           onChange={(e) => updateForm({ lastName: e.target.value })}
+           id="address"
+           value={form.address}
+           onChange={(e) => updateForm({ address: e.target.value })}
+         />
+       </div>
+       <div className="form-group">
+         <label htmlFor="name">City</label>
+         <input
+           type="text"
+           className="form-control"
+           id="city"
+           value={form.city}
+           onChange={(e) => updateForm({ city: e.target.value })}
+         />
+       </div>
+       <div className="form-group">
+         <label htmlFor="name">State</label>
+         <input
+           type="text"
+           className="form-control"
+           id="state"
+           value={form.state}
+           onChange={(e) => updateForm({ state: e.target.value })}
+         />
+       </div>
+       <div className="form-group">
+         <label htmlFor="name">Zip Code</label>
+         <input
+           type="text"
+           className="form-control"
+           id="zip"
+           value={form.zip}
+           onChange={(e) => updateForm({ zip: e.target.value })}
          />
        </div>
        <div className="form-group">

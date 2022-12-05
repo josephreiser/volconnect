@@ -53,13 +53,15 @@ nonprofitRoutes.route("/nonprofits/:id").get(function (req, res) {
 nonprofitRoutes.route("/nonprofits/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    name: req.body.name,
     password: req.body.password,
-    status: req.body.status,   
-    email: req.body.email, 
-    organization: req.body.organization,  
-    eventsAttended: []
+    address: req.body.address,
+    city: req.body.city,   
+    state: req.body.state, 
+    zip: req.body.zip,  
+    email: req.body.email,
+    status: req.body.status,
+    desc: req.body.description,
  };
  db_connect.collection("Nonprofits").insertOne(myobj, function (err, res) {
    if (err) throw err;
