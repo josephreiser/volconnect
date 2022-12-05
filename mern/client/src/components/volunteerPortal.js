@@ -178,7 +178,7 @@ export default function ViewEvents() {
                              />
                         </label>
                     </fieldset>
-                    <button onClick = {function() {reload()}}>
+                    <button id = "goBack" onClick = {function() {reload()}}>
                      Go Back 
                     </button>
                     <button type="submit" id="submit">Sign Up</button>
