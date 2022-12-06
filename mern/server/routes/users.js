@@ -67,16 +67,31 @@ userRoutes.route("/users/add").post(function (req, response) {
  });
 });
  
-// This section will help you adjust the amount of hours served of a volunteer
+// Add an event to a list of attendees' verified events
 userRoutes.route("/users/update/").post(function (req, response) {
-
- let db_connect = dbo.getDb(); 
- let myquery = { _id: ObjectId( req.body.id )}; 
- let newvalues = {   
-   $set: {
-      eventsAttended: eventsAttended.push(req.params.event)
-   }, 
+  let db_connect = dbo.getDb(); 
+  let attendees = req.body.attendees
+  for (var i = 0; i < attendees.length; i++){
+    db_connect
+      .collection('Users')
+      .updateOne({"_id": ObjectId(attendees[i][1])}, { $push: {"eventsAttended": req.body.event}})
   }
+});
+
+// Retrieve a list of users by ID
+userRoutes.route("/users/group/").post(function (req, response) {
+  let db_connect = dbo.getDb(); 
+  let attendees = req.body.attendees
+  let obj_ids = attendees.map(function(id) { return ObjectId(id); });
+  let myquery = {_id: {$in: obj_ids}}
+   db_connect
+    .collection("Users")
+    .find(myquery)
+    .toArray(function (err, result) {
+      if (err) throw err;
+      response.json(result);
+    });
+   
 });
  
 // This section will help you delete a user
