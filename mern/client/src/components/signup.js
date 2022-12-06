@@ -79,6 +79,7 @@ export default function SignUp({event}) {
  
    setForm({ email: "", password: ""});
    navigate("/");
+   alert("Successfully signed up for this event")
  }
 
     return (

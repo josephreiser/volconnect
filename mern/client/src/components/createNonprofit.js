@@ -45,6 +45,7 @@ export default function AddNonprofit() {
  
    setForm({name: "", address: "", city: "", state: "", zip: "", email: "", description: "", password: ""});
    navigate("/");
+   alert("Acount Created! You can now create events for your organization on the Non-Profits page")
  }
  
  // This following section will display the form that takes the input from the user.

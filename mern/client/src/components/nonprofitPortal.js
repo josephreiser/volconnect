@@ -75,6 +75,7 @@ export default function CreateEvent() {
         setForm({ name: "", date: "", startTime: "", endTime: "", address: "",
                     city: "", state: "", zip: "", desc: "", email: "", password: ""});
         navigate("/");
+        alert("Event is registered. It can be viewed on the volunteers page. For changes to an event please email our staff")
     }
 
     return (

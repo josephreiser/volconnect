@@ -44,6 +44,7 @@ export default function AddUser() {
  
    setForm({firstName: "", lastName: "", email: "", status: "", organization: "", password: ""});
    navigate("/");
+   alert("Account Created! Navigate to the Volunteers tab to sign up for events.")
  }
  
  // This following section will display the form that takes the input from the user.
