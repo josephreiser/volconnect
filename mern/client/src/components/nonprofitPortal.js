@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 import axios from 'axios'
  
 export default function CreateEvent() {
+ const navigate = useNavigate();
+
  const [form, setForm] = useState({
     name: "",
     date: "",
@@ -17,15 +19,15 @@ export default function CreateEvent() {
     email: "",
     password: ""
  });
- const navigate = useNavigate();
- 
- // These methods will update the state properties.
- function updateForm(value) {
-   return setForm((prev) => {
-     return { ...prev, ...value };
-   });
- }
- 
+
+  // These methods will update the state properties.
+  function updateForm(value) {
+    return setForm((prev) => {
+      return { ...prev, ...value };
+    });
+  }
+   
+
  // This function will handle the submission.
  async function onSubmit(e) {
    e.preventDefault();
@@ -48,7 +50,7 @@ export default function CreateEvent() {
         })
         .then((response) => {
             if (response.data.password == nonprofit.password){
-
+                newEvent.creator = response.data._id
                 axios.post('http://localhost:5000/events/create', JSON.stringify(newEvent), 
                 { 
                     headers: {
@@ -64,7 +66,7 @@ export default function CreateEvent() {
                 })
             }
             else{
-                navigate('/nprft_crdntl_err')
+                navigate('/crdntl_err')
             }
         })
 

@@ -16,6 +16,9 @@ import ViewEvents from "./components/volunteerPortal";
 import SignUp from "./components/signup"
 import AddNonprofit from "./components/createNonprofit";
 import NonprofitErrorCredentials from "./components/error_credentials";
+import ViewOrganizations from "./components/organizationPortal";
+import CreateOrganization from "./components/createOrg";
+import ManageEvent from "./components/manageEvent";
 //import Login from "./components/Login";
 
 
@@ -41,7 +44,11 @@ const App = () => {
       <Route path="/nonprofitSignup" element={<AddNonprofit />}/>
       <Route path="/signup" element={<SignUp />}/>
       <Route path="/viewmap" element={<ViewEvents />}/>
-      <Route path="/nprft_crdntl_err" element={<NonprofitErrorCredentials />}/>
+      <Route path="/crdntl_err" element={<NonprofitErrorCredentials />}/>
+      <Route path="/organizations" element={<ViewOrganizations />}/>
+      <Route path="/createorg" element={<CreateOrganization />}/>
+      <Route path="/manageEvent" element={<ManageEvent />}/>
+
      </Routes>
    </div>
  );

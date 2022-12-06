@@ -39,6 +39,8 @@ export default function AddUser() {
         console.log(res);
         console.log(res.data);
     });
+    
+     
  
    setForm({firstName: "", lastName: "", email: "", status: "", organization: "", password: ""});
    navigate("/");

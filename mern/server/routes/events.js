@@ -23,12 +23,27 @@ eventRoutes.route("/events/view").get(function (req, res) {
     });
 });
 
+// Get event by creator ID
+eventRoutes.route("/events/find").post(function (req, res) {
+    let db_connect = dbo.getDb();
+    console.log(req.body._id)
+    let myquery = {creator : req.body._id}
+    console.log(req.body._id)
+    db_connect
+    .collection('Events')
+    .findOne(myquery, function (err, result) {
+        console.log(result)
+        if (err) throw err;
+        res.json(result);
+    });
+});
+
 // Add a user to the list of attendees for an event
 eventRoutes.route("/events/update").post(function (req, res) {
     let db_connect = dbo.getDb();
     db_connect
     .collection('Events')
-    .updateOne({"_id": ObjectId(req.body.eventid)}, { $push: {"attendees": req.body.userid, "attendeeList": req.body.userFirst + " " + req.body.userLast}})
+    .updateOne({"_id": ObjectId(req.body.eventid)}, { $push: {"attendees": req.body.userid, "attendeeList": [req.body.userFirst + " " + req.body.userLast, req.body.userid]}})
 });
 
 // Create an event.
@@ -45,7 +60,8 @@ eventRoutes.route("/events/create").post(function (req, response) {
         zip: req.body.zip,
         desc: req.body.desc,
         attendees: [],
-        attendeeList: []
+        attendeeList: [],
+        creator: req.body.creator
     };
     console.log(myobj)
     db_connect

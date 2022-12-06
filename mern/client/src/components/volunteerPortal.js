@@ -86,6 +86,9 @@ export default function ViewEvents() {
                     alert('Error retrieving data')
                 });
             }
+            else{
+                navigate('crdntl_err')
+            }
         })
         .catch(() => {
             alert('Error retrieving data')
