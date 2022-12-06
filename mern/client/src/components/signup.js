@@ -26,7 +26,7 @@ export default function SignUp({event}) {
    const attendee = { ...form };
    console.log(attendee)
     /*
-   axios.get('http://localhost:5000/users/verify', JSON.stringify(attendee), 
+   axios.get('http://129.114.25.172:30001/users/verify', JSON.stringify(attendee), 
    { 
        headers: {
             'content-type': "application/json",
@@ -38,7 +38,7 @@ export default function SignUp({event}) {
         console.log(res);
         console.log(res.data);
     });
-   axios.post('http://localhost:5000/events/signup', JSON.stringify(attendee), 
+   axios.post('http://129.114.25.172:30001/events/signup', JSON.stringify(attendee), 
    { 
        headers: {
             'content-type': "application/json",
@@ -65,7 +65,7 @@ export default function SignUp({event}) {
     })
 
    /
-   await fetch("http://localhost:5000/events/create", {
+   await fetch("http://129.114.25.172:30001/events/create", {
      method: "POST",
      headers: {
        "Content-Type": "application/json",
