@@ -43,7 +43,7 @@ export default function Homepage() {
                         <Card.Text>
 
                         </Card.Text>
-                        <Link to={`/${"nonprofitPortal"}`}>
+                        <Link to={`/${"nonprofitRedirect"}`}>
                             <Button variant="primary">Click Here</Button>
                         </Link>
                     </Card.Body>
