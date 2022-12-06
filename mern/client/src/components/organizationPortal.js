@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { renderMatches, useNavigate } from "react-router";
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-import Button from '@restart/ui/esm/Button';
+import Button from 'react-bootstrap/Button';
 import MapSection from "./map"
 import { Card } from 'react-bootstrap';
 
@@ -23,6 +23,32 @@ export default function ViewOrganizations() {
         return setForm((prev) => {
           return { ...prev, ...value };
         });
+    }
+
+    function getRank(value){
+
+            if (value < 1){
+                return "Noob"
+            }
+            else if (value < 3){
+                return "Rising Volunteer"
+            }
+            else if (value < 7){
+                return "Contributor"
+            }
+            else if (value < 13){
+                return "Regular"
+            }
+            else if (value < 21){
+                return "Friend of the Community"
+            }
+            else if (value < 35){
+                return"Blessing"
+            }
+            else if (value >= 35){
+                return "Formidable Ally"
+            }
+        
     }
 
     const [chosen, setChosen] = useState(false)
@@ -93,22 +119,17 @@ export default function ViewOrganizations() {
     if (chosen == false){
         return(
             <div>
-                <div>
+                <div class="col-md-12 text-center">
                     <h1> 
-                        Here is a list of volunteer organizations connected with VolunteerConnect
+                        Organizations
                     </h1>
                     <br/>
-                </div>
-                <button variant="primary" onClick={function(){navigate("/createorg")}}>
-                    Create an Organization
-                </button>
-                <div>
                     <ul>
                         {
                             orgs.map((data) => (
                                 <li key={data._id}> 
                                 <h3> Organization: {data.name}</h3>
-                                <p> Description: {data.desc}</p>
+                                <p> {data.desc}</p>
                                 <button id = "signup" onClick={function(){setChosen(true); selectOrg(data); selectButtonType("signup")}}>
                                 Register for this Organization
                                 </button>
@@ -121,6 +142,11 @@ export default function ViewOrganizations() {
                             ))
                         }
                     </ul>
+                    <Button variant="primary" onClick={function(){navigate("/createorg")}}>
+                        Create an Organization
+                    </Button>
+                    </div >
+                    <div>
                 </div>
             </div>
         );
@@ -179,11 +205,11 @@ export default function ViewOrganizations() {
             .then((response) => {
                 setMembers(response.data)
             })
-            .catch(() => {console.log('what??')})
+            .catch(() => {})
             setLeaderboardGenerated(true)
         }
         else{
-            console.log(members)
+           
             return(
                 <div>
                     <h1> Organization: {selectedOrg.name} </h1>
@@ -192,9 +218,10 @@ export default function ViewOrganizations() {
                     <h3> Current Rankings (by number of events attended): </h3>
                     <ul>
                         {
-                            members.map((data) => (
+                            members.sort((a, b) => a.eventsAttended.length > b.eventsAttended.length ? 1 : -1).map((data) => (
                                 <li key={data._id}> 
                                 <h3> Name: {data.firstName} {data.lastName}</h3>
+                                <p> Rank: {getRank(data.eventsAttended.length)}</p>
                                 <p> Events attended: {data.eventsAttended.length} </p>
                                 </li>
 
