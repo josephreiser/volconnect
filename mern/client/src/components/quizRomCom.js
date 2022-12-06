@@ -60,7 +60,7 @@ export default function Quiz() {
     }
 
     async function getMovie(answerText) {
-        const response = await fetch(`http://localhost:5000/requests/getMovie/${answerText}`);
+        const response = await fetch(`http://localhost:30001/requests/getMovie/${answerText}`);
         const movie = await response.json();
         return <img src={movie.Poster}></img>
     }

@@ -40,7 +40,7 @@ export default function CreateEvent() {
        password: newEvent.password
    }
 
-   axios.post('http://129.114.25.172:5000/nonprofits/verify', JSON.stringify(nonprofit),
+   axios.post('http://129.114.25.172:30001/nonprofits/verify', JSON.stringify(nonprofit),
         {
             headers: {
                 'content-type': "application/json",
@@ -51,7 +51,7 @@ export default function CreateEvent() {
         .then((response) => {
             if (response.data.password == nonprofit.password){
                 newEvent.creator = response.data._id
-                axios.post('http://129.114.25.172:5000/events/create', JSON.stringify(newEvent), 
+                axios.post('http://129.114.25.172:30001/events/create', JSON.stringify(newEvent), 
                 { 
                     headers: {
                             'content-type': "application/json",

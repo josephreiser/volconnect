@@ -41,7 +41,7 @@ export default function ViewOrganizations() {
         const newMember = { ...form, organizationID: selectedOrg._id };
 
      
-        axios.post('http://localhost:5000/users/verify', JSON.stringify(newMember),
+        axios.post('http://129.114.25.172:30001/users/verify', JSON.stringify(newMember),
              {
                  headers: {
                      'content-type': "application/json",
@@ -52,7 +52,7 @@ export default function ViewOrganizations() {
              .then((response) => {
                  if (response.data.password == newMember.password){
                      newMember._id = response.data._id
-                     axios.post('http://localhost:5000/orgs/newmember', JSON.stringify(newMember), 
+                     axios.post('http://129.114.25.172:30001/orgs/newmember', JSON.stringify(newMember), 
                      { 
                          headers: {
                                  'content-type': "application/json",
@@ -79,7 +79,7 @@ export default function ViewOrganizations() {
     }
 
     if (displayed == false){
-        axios.get('http://localhost:5000/orgs')
+        axios.get('http://129.114.25.172:30001/orgs')
         .then((response) => {
             console.log(response)
             setOrgs(response.data)
@@ -168,7 +168,7 @@ export default function ViewOrganizations() {
             const myRequest = {
                 attendees: selectedOrg.members
             }
-            axios.post('http://localhost:5000/users/group', JSON.stringify(myRequest),
+            axios.post('http://129.114.25.172:30001/users/group', JSON.stringify(myRequest),
             {
                 headers: {
                     'content-type': "application/json",

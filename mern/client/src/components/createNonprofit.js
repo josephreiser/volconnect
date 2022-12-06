@@ -30,7 +30,7 @@ export default function AddNonprofit() {
    // When a post request is sent to the create url, we'll add a new record to the database.
    const newOrg = { ...form };
  
-   axios.post('http://129.114.25.172:5000/nonprofits/add', JSON.stringify(newOrg), 
+   axios.post('http://129.114.25.172:30001/nonprofits/add', JSON.stringify(newOrg), 
    { 
        headers: {
             'content-type': "application/json",
