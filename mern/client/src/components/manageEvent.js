@@ -36,26 +36,8 @@ export default function ManageEvent() {
      console.log(response)
    })
    .catch(() => {})
+   navigate('/')
  }
- function handleSelectAll(e){
-    setIsCheckAll(!isCheckedAll);
-    setCheckedItems(myAttendees.map(li => li._id));
-    if (isCheckedAll) {
-      setCheckedItems([]);
-    }
-  };
-
- function handleCheck(newValue){
-    const {val, checked} = newValue.target
-    if (checkedItems.includes(val)){
-      setCheckedItems((prev) => prev.splice(prev.indexOf(val)))
-    }
-    else {
-      setCheckedItems((prev) => 
-        [...prev, val]
-      )
-    }
-  }
 
  function updateAttendees(value1, value2){
    setEvent(value1)

@@ -128,30 +128,6 @@ export default function AddUser() {
          </div>
        </div>
        <div className="form-group">
-         <label htmlFor="position">Organization</label>
-         <input
-           type="text"
-           className="form-control"
-           id="status"
-           value={form.organization}
-           onChange={(e) => updateForm({ status: e.target.value })}
-         />
-       </div>
-       <div className="form-group">
-         <div className="form-check form-check-inline">
-           <input
-             className="form-check-input"
-             type="radio"
-             name="positionOptions"
-             id="Vanderbilt"
-             value="Vanderbilt"
-             checked={form.organization === "Vanderbilt"}
-             onChange={(e) => updateForm({ organization: e.target.value })}
-           />
-           <label htmlFor="Vanderbilt" className="form-check-label">Vanderbilt</label>
-         </div>
-       </div>
-       <div className="form-group">
          <input
            type="submit"
            value="Create an Account"

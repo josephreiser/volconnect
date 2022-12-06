@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { renderMatches, useNavigate } from "react-router";
 import axios from 'axios'
 import { Link } from 'react-router-dom';
-import Button from '@restart/ui/esm/Button';
+import Button from 'react-bootstrap/Button';
 import MapSection from "./map"
 import { Card } from 'react-bootstrap';
 
@@ -93,6 +93,7 @@ export default function ViewEvents() {
         .catch(() => {
             alert('Error retrieving data')
         });
+        navigate('/')
     }
 
     if (displayed == false){ 
@@ -110,6 +111,20 @@ export default function ViewEvents() {
     if (chosen == false){
         return(
             <div>
+                <ul>
+                <div class="col-md-12 text-center">
+                    <h1> 
+                        Volunteering Organizations
+                    </h1>
+                    <br/>
+                    <div class="col-md-12 text-center">
+                    <Link to={`/organizations`}>
+                    <Button variant = "primary"> Click Here for Volunteering Organizations</Button>
+                    </Link>
+                    </div>
+                </div>
+                </ul>
+
                 <div>
                     <h1> 
                         Volunteering events in your area:
@@ -156,7 +171,7 @@ export default function ViewEvents() {
                   <p> From {selectedEvent.startTime} to {selectedEvent.endTime} </p>
                   <p> Description: {selectedEvent.desc}</p>
                   <p> Attendees: {selectedEvent.attendeeList.map((tag, i) => <span key={i}>
-                {i > 0 && ", "} {tag} </span>)}
+                {i > 0 && ", "} {tag[0]} </span>)}
                  </p>
                 <form onSubmit={onSubmit} >
                     <fieldset>
