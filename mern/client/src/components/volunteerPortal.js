@@ -12,8 +12,9 @@ export default function ViewEvents() {
     const navigate = useNavigate();
 
     function reload() {
-        console.log('why')
-        window.location.reload(false)
+        //console.log('why')
+        //window.location.reload(false)
+        navigate('/')
     }
     const [form, setForm] = useState({
         email: "",
@@ -55,7 +56,6 @@ export default function ViewEvents() {
     async function onSubmit(e) {
         e.preventDefault();
         console.log('test1')
-        // When a post request is sent to the create url, we'll add a new record to the database.
         const attendee = { ...form };
         console.log(attendee)
         axios.post('http://localhost:5000/users/verify', JSON.stringify(attendee),

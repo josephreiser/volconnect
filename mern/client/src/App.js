@@ -8,12 +8,10 @@ import Navbar from "./components/navbar";
 import Homepage from "./components/homepage";
 
 import "./App.css";
-import RomcomQuiz from "./components/quizRomCom"
 import MapSection from "./components/map"
 import CreateEvent from "./components/nonprofitPortal";
 import AddUser from "./components/createUser";
 import ViewEvents from "./components/volunteerPortal";
-import SignUp from "./components/signup"
 import AddNonprofit from "./components/createNonprofit";
 import NonprofitErrorCredentials from "./components/error_credentials";
 import ViewOrganizations from "./components/organizationPortal";
@@ -43,7 +41,6 @@ const App = () => {
       <Route path="/volunteerPortal" element={<ViewEvents />}/>
       <Route path="/userSignup" element={<AddUser />}/>
       <Route path="/nonprofitSignup" element={<AddNonprofit />}/>
-      <Route path="/signup" element={<SignUp />}/>
       <Route path="/viewmap" element={<ViewEvents />}/>
       <Route path="/crdntl_err" element={<NonprofitErrorCredentials />}/>
       <Route path="/organizations" element={<ViewOrganizations />}/>
