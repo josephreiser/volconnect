@@ -26,7 +26,7 @@ export default function ManageEvent() {
      attendees: myAttendees
    }
    console.log(myRequest)
-   axios.post('http://129.114.25.172:30001/users/update', JSON.stringify(myRequest),
+   axios.post('http://localhost:3000/users/update', JSON.stringify(myRequest),
    {
        headers: {
            'content-type': "application/json",
@@ -61,7 +61,7 @@ export default function ManageEvent() {
  
    const admin = { ...form };
  
-   axios.post('http://129.114.25.172:30001/nonprofits/verify', JSON.stringify(admin),
+   axios.post('http://localhost:3000/nonprofits/verify', JSON.stringify(admin),
         {
             headers: {
                 'content-type': "application/json",
@@ -74,7 +74,7 @@ export default function ManageEvent() {
             const body = {
               _id: response.data._id
             }
-            axios.post('http://129.114.25.172:30001/events/find', JSON.stringify(body), 
+            axios.post('http://localhost:3000/events/find', JSON.stringify(body), 
             {
               headers: {
                   'content-type': "application/json",
