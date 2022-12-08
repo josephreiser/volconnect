@@ -1,3 +1,5 @@
+// Authors: Joe Reiser (33%), Lauren Young (33%), Kavi Palmer (33%)
+
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";

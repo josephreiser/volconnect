@@ -1,3 +1,5 @@
+// Authors: Lauren Young (50%), Kavi Palmer (50%)
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -24,7 +26,7 @@ export default function CreateOrganization() {
    // When a post request is sent to the create url, we'll add a new record to the database.
    const newOrg = { ...form };
  
-   axios.post('http://localhost:5000/orgs/add', JSON.stringify(newOrg), 
+   axios.post('http://129.114.25.172:30001/orgs/add', JSON.stringify(newOrg), 
    { 
        headers: {
             'content-type': "application/json",

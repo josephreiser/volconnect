@@ -1,3 +1,6 @@
+// Authors: Joe Reiser (33%), Lauren Young (33%), Kavi Palmer (33%)
+
+
 import React from "react";
  
 // We use Route in order to define the different routes of our application

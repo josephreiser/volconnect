@@ -1,3 +1,5 @@
+// Authors: Joe Reiser (50%), Kavi Palmer (50%)
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -27,7 +29,7 @@ export default function AddUser() {
    // When a post request is sent to the create url, we'll add a new record to the database.
    const newPerson = { ...form };
  
-   axios.post('http://localhost:5000/users/add', JSON.stringify(newPerson), 
+   axios.post('http://129.114.25.172:30001/users/add', JSON.stringify(newPerson), 
    { 
        headers: {
             'content-type': "application/json",

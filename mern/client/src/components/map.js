@@ -1,3 +1,5 @@
+// Authors: Joe Reiser (50%), Kavi Palmer (50%)
+
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import './map.css'
