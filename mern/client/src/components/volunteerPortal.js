@@ -58,7 +58,7 @@ export default function ViewEvents() {
         console.log('test1')
         const attendee = { ...form };
         console.log(attendee)
-        axios.post('http://localhost:5000/users/verify', JSON.stringify(attendee),
+        axios.post('http://129.114.25.172:30001/users/verify', JSON.stringify(attendee),
         {
             headers: {
                 'content-type': "application/json",
@@ -75,7 +75,7 @@ export default function ViewEvents() {
                     userFirst: response.data.firstName,
                     userLast: response.data.lastName,
                 }
-                axios.post('http://localhost:5000/events/update', JSON.stringify(comparator),
+                axios.post('http://129.114.25.172:30001/events/update', JSON.stringify(comparator),
                 {
                     headers: {
                         'content-type': "application/json",
@@ -97,7 +97,7 @@ export default function ViewEvents() {
     }
 
     if (displayed == false){ 
-        axios.get('http://localhost:5000/events/view')
+        axios.get('http://129.114.25.172:30001/events/view')
         .then((response) => {
             console.log(response)
             setPosts(response.data)
