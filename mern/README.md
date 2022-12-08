@@ -23,7 +23,7 @@
 
     a. npm start
     
-4. Inside the server directory, run the following
+4. Inside the server directory, run the following in a separate terminal
 
     b. node server.js
     
