@@ -1,3 +1,5 @@
+// Authors: Joe Reiser (50%), Kavi Palmer (50%)
+
 const express = require("express");
  
 // orgRoutes is an instance of the express router.

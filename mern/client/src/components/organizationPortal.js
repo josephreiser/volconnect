@@ -1,3 +1,5 @@
+// Authors: Joe Reiser (50%), Kavi Palmer (50%)
+
 import './volunteer.css'
 import React, { useState } from "react";
 import { renderMatches, useNavigate } from "react-router";

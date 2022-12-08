@@ -1,3 +1,5 @@
+// Authors: Joe Reiser (33%), Lauren Young (33%), Kavi Palmer (33%)
+
 const express = require("express");
  
 // userRoutes is an instance of the express router.

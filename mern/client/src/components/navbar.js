@@ -1,3 +1,5 @@
+// Authors: Lauren Young (50%), Kavi Palmer (50%)
+
 import React from "react";
  
 // We import bootstrap to make our application look better.

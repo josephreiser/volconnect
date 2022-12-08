@@ -1,3 +1,5 @@
+// Authors: Lauren Young (50%), Kavi Palmer (50%)
+
 import './nonprofit.css'
 import React, { useState } from "react";
 import { useNavigate } from "react-router";

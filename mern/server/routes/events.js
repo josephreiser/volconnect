@@ -1,3 +1,5 @@
+// Authors: Joe Reiser (50%), Lauren Young (50%)
+
 const express = require("express");
  
 // recordRoutes is an instance of the express router.

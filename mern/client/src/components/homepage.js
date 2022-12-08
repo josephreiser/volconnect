@@ -1,3 +1,5 @@
+// Authors: Joe Reiser (50%), Lauren Young (50%)
+
 import React from "react";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";

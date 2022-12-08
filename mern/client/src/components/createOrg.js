@@ -1,3 +1,5 @@
+// Authors: Lauren Young (50%), Kavi Palmer (50%)
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
